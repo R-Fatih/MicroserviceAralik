@@ -7,6 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{8D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralık.Catalog", "Services\MicroserviceAralık.Catalog\MicroserviceAralık.Catalog.csproj", "{E72DE053-34FC-4D50-958F-A62EE0B858A7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirements", "{2BC845BC-913B-4AB6-832A-558B14DABEAD}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Users\Admin\Desktop\MikroServis\MikroServis\requirements\portainer.txt = ..\..\Users\Admin\Desktop\MikroServis\MikroServis\requirements\portainer.txt
+		..\..\Users\Admin\Desktop\MikroServis\MikroServis\requirements\Serilog conf.txt = ..\..\Users\Admin\Desktop\MikroServis\MikroServis\requirements\Serilog conf.txt
+		..\..\Users\Admin\Desktop\MikroServis\MikroServis\requirements\Swagger token.txt = ..\..\Users\Admin\Desktop\MikroServis\MikroServis\requirements\Swagger token.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
