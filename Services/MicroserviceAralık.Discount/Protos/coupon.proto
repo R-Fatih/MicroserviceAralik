@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option csharp_namespace = "MicroserviceAralık.Discount.Protos";
+
+import "google/protubuf/timestamp.proto";
+
+service CouponService{
+	rpc GetCouponById(GetCouponByIdRequest) returns (GetCouponResponse);
+	rpc GetAllCoupons(Empty) returns (GetCouponResponses);
+	rpc CreateCoupon(CreateCouponRequest) returns(GetCouponResponse);
+	rpc UpdateCoupon(UpdateCouponRequest) returns(GetCouponResponse);
+	rpc DeleteCoupon(DeleteCouponRequest) returns(DeleteCouponResponse);
+}
+message GetCouponByIdRequest{
+	int32 id=1;
+}
+message GetCouponResponse{
+	int32 id=1;
+	string code=2;
+	int32 rate=3;
+	bool isActive=4;
+	google.protobuf.Timestamp validDate=5;
+
+}
+message GetCouponResponses{
+	repeated GetCouponResponse coupons=1;
+}
+message CreateCouponRequest{
+	GetCouponResponse coupon=1;
+}
+message UpdateCouponRequest{
+	GetCouponResponse coupon=1;
+}
+message DeleteCouponRequest{
+		int32 id=1;
+}
+message DeleteCouponResponse{
+	bool isDeleted=1;
+}

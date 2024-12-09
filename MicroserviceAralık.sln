@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirement
 		..\..\Users\Admin\Desktop\MikroServis\MikroServis\requirements\Swagger token.txt = ..\..\Users\Admin\Desktop\MikroServis\MikroServis\requirements\Swagger token.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralık.Discount", "Services\MicroserviceAralık.Discount\MicroserviceAralık.Discount.csproj", "{69ED50D6-7AE7-4FFE-920F-77002811F737}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,11 +26,16 @@ Global
 		{E72DE053-34FC-4D50-958F-A62EE0B858A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E72DE053-34FC-4D50-958F-A62EE0B858A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E72DE053-34FC-4D50-958F-A62EE0B858A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69ED50D6-7AE7-4FFE-920F-77002811F737}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69ED50D6-7AE7-4FFE-920F-77002811F737}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69ED50D6-7AE7-4FFE-920F-77002811F737}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69ED50D6-7AE7-4FFE-920F-77002811F737}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E72DE053-34FC-4D50-958F-A62EE0B858A7} = {8DD895CD-20FA-48C0-B68F-BFFEF03A6704}
+		{69ED50D6-7AE7-4FFE-920F-77002811F737} = {8DD895CD-20FA-48C0-B68F-BFFEF03A6704}
 	EndGlobalSection
 EndGlobal
