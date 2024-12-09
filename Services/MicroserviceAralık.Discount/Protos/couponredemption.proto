@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option csharp_namespace = "MicroserviceAralık.Discount.Protos";
+
+import "google/protobuf/timestamp.proto";
+service CouponRedemptionService{
+	rpc GetCouponRedemptionById(GetCouponRedemptionByIdRequest) returns (GetCouponRedemptionResponse);
+	rpc GetAllRedemptions(EmptyRedemption) returns (GetCouponRedemptionResponses);
+	rpc CreateRedemption(CreateRedemptionRequest) returns (GetCouponRedemptionResponse);
+	rpc UpdateRedemption(UpdateRedemptionRequest) returns
+	(GetCouponRedemptionResponse);
+	rpc DeleteRedemption(DeleteRedemptionRequest) returns (DeleteRedemptionResponse);
+}
+message GetCouponRedemptionByIdRequest{
+	int32 id=1;
+}
+message GetCouponRedemptionResponse{
+	int32 id=1;
+	int32 couponId=2;
+	string userId=3;
+	google.protobuf.Timestamp redemptionDate=4;
+	int32 discountRate=5;
+}
+message GetCouponRedemptionResponses{
+	repeated GetCouponRedemptionResponse redemptions=1;
+}
+message CreateRedemptionRequest{
+	GetCouponRedemptionResponse redemption=1;
+}
+message UpdateRedemptionRequest{
+	GetCouponRedemptionResponse redemption=1;
+}
+message DeleteRedemptionRequest{
+	int32 id=1;
+}
+message DeleteRedemptionResponse{
+	bool isDeleted=1;
+}
+message EmptyRedemption{}

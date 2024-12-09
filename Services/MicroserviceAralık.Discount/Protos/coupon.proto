@@ -6,7 +6,7 @@ import "google/protubuf/timestamp.proto";
 
 service CouponService{
 	rpc GetCouponById(GetCouponByIdRequest) returns (GetCouponResponse);
-	rpc GetAllCoupons(Empty) returns (GetCouponResponses);
+	rpc GetAllCoupons(EmptyCoupon) returns (GetCouponResponses);
 	rpc CreateCoupon(CreateCouponRequest) returns(GetCouponResponse);
 	rpc UpdateCoupon(UpdateCouponRequest) returns(GetCouponResponse);
 	rpc DeleteCoupon(DeleteCouponRequest) returns(DeleteCouponResponse);
@@ -37,3 +37,4 @@ message DeleteCouponRequest{
 message DeleteCouponResponse{
 	bool isDeleted=1;
 }
+message EmptyCoupon{}
