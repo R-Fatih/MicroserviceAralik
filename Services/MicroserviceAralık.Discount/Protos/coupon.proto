@@ -2,7 +2,7 @@ syntax = "proto3";
 
 option csharp_namespace = "MicroserviceAralık.Discount.Protos";
 
-import "google/protubuf/timestamp.proto";
+import "google/protobuf/timestamp.proto";
 
 service CouponService{
 	rpc GetCouponById(GetCouponByIdRequest) returns (GetCouponResponse);

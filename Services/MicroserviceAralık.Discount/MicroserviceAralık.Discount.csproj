@@ -28,10 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Protobuf Include="Protos\coupon.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\couponredemption.proto" GrpcServices="Server" />
   </ItemGroup>
