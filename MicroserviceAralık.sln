@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35506.116 d17.12
+VisualStudioVersion = 17.12.35506.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{8DD895CD-20FA-48C0-B68F-BFFEF03A6704}"
 EndProject
@@ -15,6 +15,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirement
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralık.Discount", "Services\MicroserviceAralık.Discount\MicroserviceAralık.Discount.csproj", "{69ED50D6-7AE7-4FFE-920F-77002811F737}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Order", "Order", "{8F20B86D-EF59-4E97-9A86-0F171C49FFF8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{1EB50232-AF28-49D1-922F-826A6806CFB5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{FD1E6895-6A9D-430F-9A85-77D775775FED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{85EADBFD-8B36-4998-ABFC-3A4187DBACDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralık.Order.Domain", "Services\Order\Core\MicroserviceAralık.Order.Domain\MicroserviceAralık.Order.Domain.csproj", "{6BEFB5BC-2C7C-4F16-BADB-B45B79231B59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralık.Order.Application", "Services\Order\Core\MicroserviceAralık.Order.Application\MicroserviceAralık.Order.Application.csproj", "{7AD4EBD2-BB9D-4DAB-992E-3288ACCADAD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralık.Order.Persistence", "Services\Order\Infrastructure\MicroserviceAralık.Order.Persistence\MicroserviceAralık.Order.Persistence.csproj", "{6F43C33A-69B5-4050-AD92-46B09D982F1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralık.Order.Presentation", "Services\Order\Presentation\MicroserviceAralık.Order.Presentation\MicroserviceAralık.Order.Presentation.csproj", "{D31C7E6D-90FA-4BAD-801A-7412DD0B62D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +46,22 @@ Global
 		{69ED50D6-7AE7-4FFE-920F-77002811F737}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69ED50D6-7AE7-4FFE-920F-77002811F737}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69ED50D6-7AE7-4FFE-920F-77002811F737}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BEFB5BC-2C7C-4F16-BADB-B45B79231B59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BEFB5BC-2C7C-4F16-BADB-B45B79231B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BEFB5BC-2C7C-4F16-BADB-B45B79231B59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BEFB5BC-2C7C-4F16-BADB-B45B79231B59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AD4EBD2-BB9D-4DAB-992E-3288ACCADAD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AD4EBD2-BB9D-4DAB-992E-3288ACCADAD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AD4EBD2-BB9D-4DAB-992E-3288ACCADAD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AD4EBD2-BB9D-4DAB-992E-3288ACCADAD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F43C33A-69B5-4050-AD92-46B09D982F1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F43C33A-69B5-4050-AD92-46B09D982F1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F43C33A-69B5-4050-AD92-46B09D982F1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F43C33A-69B5-4050-AD92-46B09D982F1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D31C7E6D-90FA-4BAD-801A-7412DD0B62D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D31C7E6D-90FA-4BAD-801A-7412DD0B62D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D31C7E6D-90FA-4BAD-801A-7412DD0B62D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D31C7E6D-90FA-4BAD-801A-7412DD0B62D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,5 +69,13 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{E72DE053-34FC-4D50-958F-A62EE0B858A7} = {8DD895CD-20FA-48C0-B68F-BFFEF03A6704}
 		{69ED50D6-7AE7-4FFE-920F-77002811F737} = {8DD895CD-20FA-48C0-B68F-BFFEF03A6704}
+		{8F20B86D-EF59-4E97-9A86-0F171C49FFF8} = {8DD895CD-20FA-48C0-B68F-BFFEF03A6704}
+		{1EB50232-AF28-49D1-922F-826A6806CFB5} = {8F20B86D-EF59-4E97-9A86-0F171C49FFF8}
+		{FD1E6895-6A9D-430F-9A85-77D775775FED} = {8F20B86D-EF59-4E97-9A86-0F171C49FFF8}
+		{85EADBFD-8B36-4998-ABFC-3A4187DBACDE} = {8F20B86D-EF59-4E97-9A86-0F171C49FFF8}
+		{6BEFB5BC-2C7C-4F16-BADB-B45B79231B59} = {1EB50232-AF28-49D1-922F-826A6806CFB5}
+		{7AD4EBD2-BB9D-4DAB-992E-3288ACCADAD4} = {1EB50232-AF28-49D1-922F-826A6806CFB5}
+		{6F43C33A-69B5-4050-AD92-46B09D982F1E} = {FD1E6895-6A9D-430F-9A85-77D775775FED}
+		{D31C7E6D-90FA-4BAD-801A-7412DD0B62D6} = {85EADBFD-8B36-4998-ABFC-3A4187DBACDE}
 	EndGlobalSection
 EndGlobal
