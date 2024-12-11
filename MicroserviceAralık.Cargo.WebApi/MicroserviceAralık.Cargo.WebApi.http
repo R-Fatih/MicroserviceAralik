@@ -1,0 +1,6 @@
+@MicroserviceAralık.Cargo.WebApi_HostAddress = http://localhost:5063
+
+GET {{MicroserviceAralık.Cargo.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
