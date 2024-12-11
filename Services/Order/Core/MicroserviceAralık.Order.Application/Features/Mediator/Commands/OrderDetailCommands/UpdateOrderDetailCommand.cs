@@ -1,5 +1,7 @@
-﻿namespace MicroserviceAralık.Order.Domain.Entities;
-public class OrderDetail
+﻿using MediatR;
+
+namespace MicroserviceAralık.Order.Application.Features.Mediator.Commands.OrderDetailCommands;
+public class UpdateOrderDetailCommand : IRequest
 {
     public int Id { get; set; }
     public string ProductId { get; set; }
@@ -8,5 +10,4 @@ public class OrderDetail
     public int ProductAmount { get; set; }
     public decimal TotalPrice { get; set; }
     public int OrderingId { get; set; }
-    public Ordering Ordering { get; set; }
 }

@@ -1,5 +1,5 @@
-﻿namespace MicroserviceAralık.Order.Domain.Entities;
-public class OrderDetail
+﻿namespace MicroserviceAralık.Order.Application.Features.Mediator.Results.OrderDetailResults;
+public class GetOrderDetailQueryResult
 {
     public int Id { get; set; }
     public string ProductId { get; set; }
@@ -8,5 +8,4 @@ public class OrderDetail
     public int ProductAmount { get; set; }
     public decimal TotalPrice { get; set; }
     public int OrderingId { get; set; }
-    public Ordering Ordering { get; set; }
 }
