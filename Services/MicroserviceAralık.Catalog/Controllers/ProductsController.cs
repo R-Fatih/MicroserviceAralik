@@ -1,8 +1,10 @@
 ﻿using MicroserviceAralık.Catalog.Dtos.ProductDtos;
 using MicroserviceAralık.Catalog.Services.ProductServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MicroserviceAralık.Catalog.Controllers;
+[Authorize]
 [Route("api/[controller]")]
 [ApiController]
 public class ProductsController(IProductService _productService) : ControllerBase

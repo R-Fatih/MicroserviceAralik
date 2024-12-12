@@ -1,8 +1,16 @@
 using MicroserviceAralýk.Catalog.Configurations;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    options.Authority = builder.Configuration["IdentityServerUrl"];
+    options.Audience = "ResourceCatalog";
+    options.RequireHttpsMetadata = false;
+});
+
 builder.Services.RegisterServices(builder.Configuration);
 
 builder.Services.AddControllers();
@@ -20,7 +28,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

@@ -1,8 +1,10 @@
 ﻿using MicroserviceAralık.Catalog.Dtos.BrandDtos;
 using MicroserviceAralık.Catalog.Services.BrandServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MicroserviceAralık.Catalog.Controllers;
+[Authorize]
 [Route("api/[controller]")]
 [ApiController]
 public class BrandsController(IBrandService _brandService) : ControllerBase
