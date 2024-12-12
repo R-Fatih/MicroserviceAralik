@@ -1,9 +1,11 @@
 ﻿using MediatR;
 using MicroserviceAralık.Order.Application.Features.Mediator.Commands.OrderDetailCommands;
 using MicroserviceAralık.Order.Application.Features.Mediator.Queries.OrderDetailQueries;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MicroserviceAralık.Order.Presentation.Controllers;
+[Authorize]
 [Route("api/[controller]")]
 [ApiController]
 public class OrderDetailController(IMediator _mediator) : ControllerBase
