@@ -36,15 +36,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServer", "IdentityS
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cargo", "Cargo", "{6A8EEBAC-4764-4E52-8BBB-C412194DA07A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralık.Cargo.EntityLayer", "MicroserviceAralık.Cargo.EntityLayer\MicroserviceAralık.Cargo.EntityLayer.csproj", "{CE440F33-758E-4DE9-8FB3-68D8F011F1F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralık.Cargo.EntityLayer", "Services\Cargo\MicroserviceAralık.Cargo.EntityLayer\MicroserviceAralık.Cargo.EntityLayer.csproj", "{CE440F33-758E-4DE9-8FB3-68D8F011F1F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralık.Cargo.DataAccessLayer", "MicroserviceAralık.Cargo.DataAccessLayer\MicroserviceAralık.Cargo.DataAccessLayer.csproj", "{AD511325-8C10-43A4-AC41-E743D0B6AB22}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralık.Cargo.DataAccessLayer", "Services\Cargo\MicroserviceAralık.Cargo.DataAccessLayer\MicroserviceAralık.Cargo.DataAccessLayer.csproj", "{AD511325-8C10-43A4-AC41-E743D0B6AB22}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralık.Cargo.BusinessLayer", "Services\Cargo\MicroserviceAralık.Cargo.BusinessLayer\MicroserviceAralık.Cargo.BusinessLayer.csproj", "{DEC64043-1BBF-4D51-8CA0-0147136BABF8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralık.Cargo.DtoLayer", "Services\Cargo\MicroserviceAralık.Cargo.DtoLayer\MicroserviceAralık.Cargo.DtoLayer.csproj", "{BE0344D7-49C4-4A97-9DE2-F884B320189C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralık.Cargo.WebApi", "MicroserviceAralık.Cargo.WebApi\MicroserviceAralık.Cargo.WebApi.csproj", "{D64C554A-9A0A-47C9-8DC7-FFC23C928403}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralık.Cargo.WebApi", "Services\Cargo\MicroserviceAralık.Cargo.WebApi\MicroserviceAralık.Cargo.WebApi.csproj", "{D64C554A-9A0A-47C9-8DC7-FFC23C928403}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralık.IdentityServer", "IdentityServer\MicroserviceAralık.IdentityServer\MicroserviceAralık.IdentityServer.csproj", "{22006F50-31D2-47F8-A786-DE6CECD60E1F}"
 EndProject
