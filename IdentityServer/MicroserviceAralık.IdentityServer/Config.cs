@@ -3,6 +3,7 @@
 
 
 using System.Collections.Generic;
+using IdentityServer4;
 using IdentityServer4.Models;
 
 namespace MicroserviceAralık.IdentityServer
@@ -51,7 +52,17 @@ namespace MicroserviceAralık.IdentityServer
                 ClientName="Visitor Client",
                 AllowedGrantTypes=GrantTypes.ClientCredentials,
                 ClientSecrets={new Secret("VisitorSecret".Sha256())},
-                AllowedScopes={"CatalogReadPermission","DiscountReadPermission","OrderReadPermission"}
+                AllowedScopes={"CatalogReadPermission","DiscountReadPermission"}
+            },
+            //AdminClient
+            new Client
+            {
+                ClientId="AdminId",
+                ClientName="Admin Client",
+                AllowedGrantTypes=GrantTypes.ResourceOwnerPassword,
+                ClientSecrets={ new Secret("AdminSecret".Sha256())},
+                AllowedScopes={"CatalogFullPermission","DiscountFullPermission","OrderFullPermission",IdentityServerConstants.StandardScopes.Email,IdentityServerConstants.StandardScopes.OpenId,IdentityServerConstants.StandardScopes.Profile },
+                AccessTokenLifetime=7200
             }
         };
 

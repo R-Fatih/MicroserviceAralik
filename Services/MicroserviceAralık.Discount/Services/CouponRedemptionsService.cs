@@ -6,7 +6,9 @@ using Grpc.Core;
 using MicroserviceAralık.Discount.Entities;
 using MicroserviceAralık.Discount.Protos;
 using MicroserviceAralık.Discount.Services.CouponRedemptionServices;
+using Microsoft.AspNetCore.Authorization;
 using CouponRedemtionService = MicroserviceAralık.Discount.Protos.CouponRedemptionService;
+[Authorize]
 public class CouponRedemptionsService(IDiscountCouponRedemptionService _discountCouponRedemptionService, IMapper _mapper) : CouponRedemtionService.CouponRedemptionServiceBase
 {
     public override async Task<GetCouponRedemptionResponse> CreateRedemption(CreateRedemptionRequest request, ServerCallContext context)
