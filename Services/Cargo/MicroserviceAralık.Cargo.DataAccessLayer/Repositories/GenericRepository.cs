@@ -3,8 +3,15 @@ using MicroserviceAralık.Cargo.DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 
 namespace MicroserviceAralık.Cargo.DataAccessLayer.Repositories;
-public class GenericRepository<TEntity>(AppDbContext _context) : IGenericDal<TEntity> where TEntity : class
+public class GenericRepository<TEntity> : IGenericDal<TEntity> where TEntity : class
 {
+    protected readonly AppDbContext _context;
+
+    public GenericRepository(AppDbContext context)
+    {
+        _context = context;
+    }
+
     public async Task CreateAsync(TEntity entity)
     {
 
