@@ -2,57 +2,59 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Models;
 using System.Collections.Generic;
+using IdentityServer4.Models;
 
 namespace MicroserviceAralık.IdentityServer
 {
     public static class Config
     {
-        public static IEnumerable<IdentityResource> IdentityResources =>
-                   new IdentityResource[]
-                   {
-                new IdentityResources.OpenId(),
-                new IdentityResources.Profile(),
-                   };
-
-        public static IEnumerable<ApiScope> ApiScopes =>
-            new ApiScope[]
+        public static IEnumerable<ApiResource> ApiResources => new ApiResource[]
+        {
+            new ApiResource("ResourceCatalog")
             {
-                new ApiScope("scope1"),
-                new ApiScope("scope2"),
-            };
-
-        public static IEnumerable<Client> Clients =>
-            new Client[]
+                Scopes = { "CatalogReadPermission","CatalogFullPermission" }
+            },
+            new ApiResource("ResourceDiscount")
             {
-                // m2m client credentials flow client
-                new Client
-                {
-                    ClientId = "m2m.client",
-                    ClientName = "Client Credentials Client",
+            Scopes={"DiscountReadPermission","DiscountFullPermission"}
+            },
+            new ApiResource("ResourceOrder")
+            {
+                Scopes={"OrderReadPermission","OrderFullPermission"}
+            }
+        };
 
-                    AllowedGrantTypes = GrantTypes.ClientCredentials,
-                    ClientSecrets = { new Secret("511536EF-F270-4058-80CA-1C89C192F69A".Sha256()) },
 
-                    AllowedScopes = { "scope1" }
-                },
+        public static IEnumerable<IdentityResource> IdentityResources => new IdentityResource[]
+        {
+            new IdentityResources.OpenId(),
+            new IdentityResources.Profile(),
+            new IdentityResources.Email(),
+        };
 
-                // interactive client using code flow + pkce
-                new Client
-                {
-                    ClientId = "interactive",
-                    ClientSecrets = { new Secret("49C1A7E1-0C79-4A89-A3D6-A37998FB86B0".Sha256()) },
+        public static IEnumerable<ApiScope> ApiScopes => new ApiScope[]
+        {
+            new ApiScope("CatalogReadPermission","Read access to catalog resource"),
+            new ApiScope("CatalogFullPermission","Full access to catalog resource"),
+            new ApiScope("DiscountReadPermission","Read access to discount resource"),
+            new ApiScope("DiscountFullPermission","Full access to discount resource"),
+            new ApiScope("OrderReadPermission","Read access to order resource"),
+            new ApiScope("OrderFullPermission","Full access to order resource")
+        };
+        public static IEnumerable<Client> Clients => new Client[]
+        {
+            //visitorClient
+            new Client
+            {
+                ClientId="VisitorId",
+                ClientName="Visitor Client",
+                AllowedGrantTypes=GrantTypes.ClientCredentials,
+                ClientSecrets={new Secret("VisitorSecret".Sha256())},
+                AllowedScopes={"CatalogReadPermission","DiscountReadPermission","OrderReadPermission"}
+            }
+        };
 
-                    AllowedGrantTypes = GrantTypes.Code,
 
-                    RedirectUris = { "https://localhost:44300/signin-oidc" },
-                    FrontChannelLogoutUri = "https://localhost:44300/signout-oidc",
-                    PostLogoutRedirectUris = { "https://localhost:44300/signout-callback-oidc" },
-
-                    AllowOfflineAccess = true,
-                    AllowedScopes = { "openid", "profile", "scope2" }
-                },
-            };
     }
 }
