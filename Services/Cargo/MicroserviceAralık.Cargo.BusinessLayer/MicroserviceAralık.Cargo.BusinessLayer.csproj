@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MicroserviceAralık.Cargo.DataAccessLayer\MicroserviceAralık.Cargo.DataAccessLayer.csproj" />
+  </ItemGroup>
+
 </Project>
