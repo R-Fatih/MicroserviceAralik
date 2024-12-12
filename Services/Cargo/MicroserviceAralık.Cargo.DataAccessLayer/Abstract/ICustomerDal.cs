@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MicroserviceAralık.Cargo.EntityLayer.Concrete;
 
 namespace MicroserviceAralık.Cargo.DataAccessLayer.Abstract;
-internal interface ICustomerDal
+public interface ICustomerDal : IGenericDal<Customer>
 {
 }

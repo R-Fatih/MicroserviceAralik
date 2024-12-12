@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MicroserviceAralık.Cargo.EntityLayer.Concrete;
 
 namespace MicroserviceAralık.Cargo.DataAccessLayer.Abstract;
-internal interface ICargoDetailDal
+public interface ICargoDetailDal : IGenericDal<CargoDetail>
 {
+    Task<List<CargoDetail>> GetSentCargoDetailByCustomerId(int customerId);
+    Task<List<CargoDetail>> GetReceivedCargoDetailByCustomerId(int customerId);
 }

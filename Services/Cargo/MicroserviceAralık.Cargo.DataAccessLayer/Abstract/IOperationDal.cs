@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Azure;
 
 namespace MicroserviceAralık.Cargo.DataAccessLayer.Abstract;
-internal interface IOperationDal
+public interface IOperationDal : IGenericDal<Operation>
 {
+    Task<List<Operation>> GetOperationsByBarcodeNumber(string barcode);
 }
