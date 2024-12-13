@@ -1,12 +1,15 @@
 ﻿using System.Threading.Tasks;
 using MicroserviceAralık.IdentityServer.Dtos;
 using MicroserviceAralık.IdentityServer.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using static IdentityServer4.IdentityServerConstants;
 
 namespace MicroserviceAralık.IdentityServer.Controllers
 {
+    [Authorize(LocalApi.ScopeName)]
     [Route("api/[controller]")]
     [ApiController]
     public class RegisterController : ControllerBase
