@@ -10,30 +10,35 @@ namespace MicroserviceAralık.Order.Presentation.Controllers;
 [ApiController]
 public class AddressesController(IMediator _mediator) : ControllerBase
 {
+    [Authorize(Policy = "OrderReadAccess")]
     [HttpGet]
     public async Task<IActionResult> GetAllAddresses()
     {
         var result = await _mediator.Send(new GetAddressQuery());
         return Ok(result);
     }
+    [Authorize(Policy = "OrderFullAccess")]
     [HttpGet("{id}")]
     public async Task<IActionResult> GetAddressById(int id)
     {
         var result = await _mediator.Send(new GetAddressByIdQuery(id));
         return Ok(result);
     }
+    [Authorize(Policy = "OrderFullAccess")]
     [HttpPost]
     public async Task<IActionResult> CreateAddress(CreateAddressCommand command)
     {
         await _mediator.Send(command);
         return Ok("Address created successfully!");
     }
+    [Authorize(Policy = "OrderFullAccess")]
     [HttpPut]
     public async Task<IActionResult> UpdateAddress(UpdateAddressCommand command)
     {
         await _mediator.Send(command);
         return Ok("Address updated successfully!");
     }
+    [Authorize(Policy = "OrderFullAccess")]
     [HttpDelete]
     public async Task<IActionResult> DeleteAddress(int id)
     {
