@@ -23,6 +23,11 @@ namespace MicroserviceAralık.IdentityServer
             new ApiResource("ResourceOrder")
             {
                 Scopes={"OrderReadPermission","OrderFullPermission"}
+            },
+            new ApiResource("ResourceCargo")
+            {
+
+                Scopes={"CargoReadPermission","CargoFullPermission"}
             }
         };
 
@@ -41,7 +46,9 @@ namespace MicroserviceAralık.IdentityServer
             new ApiScope("DiscountReadPermission","Read access to discount resource"),
             new ApiScope("DiscountFullPermission","Full access to discount resource"),
             new ApiScope("OrderReadPermission","Read access to order resource"),
-            new ApiScope("OrderFullPermission","Full access to order resource")
+            new ApiScope("OrderFullPermission","Full access to order resource"),
+            new ApiScope("CargoReadPermission","Read access to cargo resource"),
+            new ApiScope("CargoFullPermission","Full acess to cargo resource")
         };
         public static IEnumerable<Client> Clients => new Client[]
         {
@@ -61,7 +68,7 @@ namespace MicroserviceAralık.IdentityServer
                 ClientName="Admin Client",
                 AllowedGrantTypes=GrantTypes.ResourceOwnerPassword,
                 ClientSecrets={ new Secret("AdminSecret".Sha256())},
-                AllowedScopes={"CatalogFullPermission","DiscountFullPermission","OrderFullPermission",IdentityServerConstants.StandardScopes.Email,IdentityServerConstants.StandardScopes.OpenId,IdentityServerConstants.StandardScopes.Profile },
+                AllowedScopes={"CatalogFullPermission","DiscountFullPermission","OrderFullPermission","CargoFullPermission",IdentityServerConstants.StandardScopes.Email,IdentityServerConstants.StandardScopes.OpenId,IdentityServerConstants.StandardScopes.Profile },
                 AccessTokenLifetime=7200
             }
         };
