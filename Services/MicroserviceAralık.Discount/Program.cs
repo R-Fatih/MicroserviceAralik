@@ -9,12 +9,25 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddAuthorization();
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     options.Authority = builder.Configuration["IdentityServerUrl"];
     options.Audience = "ResourceDiscount";
     options.RequireHttpsMetadata = false;
+});
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("DiscountReadAccess", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.RequireClaim("scope", "DiscountReadPermission", "DiscountFullPermission");
+    });
+    options.AddPolicy("DiscountFullAccess", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.RequireClaim("scope", "DiscountFullPermission");
+    });
 });
 
 builder.Services.AddScoped<IDiscountCouponService, DiscountCouponService>();

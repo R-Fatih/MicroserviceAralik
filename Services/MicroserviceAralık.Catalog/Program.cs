@@ -10,6 +10,23 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     options.Authority = builder.Configuration["IdentityServerUrl"];
     options.Audience = "ResourceCatalog";
     options.RequireHttpsMetadata = false;
+
+
+});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("CatalogReadAccess", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.RequireClaim("scope", "CatalogReadPermission", "CatalogFullPermission");
+    });
+
+    options.AddPolicy("CatalogFullAccess", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.RequireClaim("scope", "CatalogFullPermission");
+    });
 });
 
 builder.Services.RegisterServices(builder.Configuration);
