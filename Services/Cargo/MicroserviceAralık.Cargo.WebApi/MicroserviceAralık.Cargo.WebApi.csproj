@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MicroserviceAralık.Cargo.BusinessLayer\MicroserviceAralık.Cargo.BusinessLayer.csproj" />
+    <ProjectReference Include="..\MicroserviceAralık.Cargo.DtoLayer\MicroserviceAralık.Cargo.DtoLayer.csproj" />
   </ItemGroup>
 
 </Project>
