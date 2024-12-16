@@ -3,13 +3,36 @@ syntax = "proto3";
 option csharp_namespace = "MicroserviceAralık.Discount.Protos";
 
 import "google/protobuf/timestamp.proto";
+import "google/api/annotations.proto";
 service CouponRedemptionService{
-	rpc GetCouponRedemptionById(GetCouponRedemptionByIdRequest) returns (GetCouponRedemptionResponse);
-	rpc GetAllRedemptions(EmptyRedemption) returns (GetCouponRedemptionResponses);
-	rpc CreateRedemption(CreateRedemptionRequest) returns (GetCouponRedemptionResponse);
+	rpc GetCouponRedemptionById(GetCouponRedemptionByIdRequest) returns (GetCouponRedemptionResponse){
+		option (google.api.http)={
+			get:"/api/couponredemptions/{id}"
+};
+	};
+	rpc GetAllRedemptions(EmptyRedemption) returns (GetCouponRedemptionResponses){
+		option (google.api.http)={
+			get:"/api/couponredemptions"
+		};
+	};
+	rpc CreateRedemption(CreateRedemptionRequest) returns (GetCouponRedemptionResponse){
+		option (google.api.http)={
+			post:"/api/couponredemptions",
+			body:"*"
+		};
+	};
 	rpc UpdateRedemption(UpdateRedemptionRequest) returns
-	(GetCouponRedemptionResponse);
-	rpc DeleteRedemption(DeleteRedemptionRequest) returns (DeleteRedemptionResponse);
+	(GetCouponRedemptionResponse){
+		option (google.api.http)={
+			put:"/api/couponredemptions",
+			body:"*"
+		};
+	};
+	rpc DeleteRedemption(DeleteRedemptionRequest) returns (DeleteRedemptionResponse){
+		option (google.api.http)={
+			delete:"/api/couponredemptions/{id}"
+		};
+	};
 }
 message GetCouponRedemptionByIdRequest{
 	int32 id=1;

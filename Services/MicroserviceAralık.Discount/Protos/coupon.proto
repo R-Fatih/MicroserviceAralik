@@ -3,13 +3,35 @@ syntax = "proto3";
 option csharp_namespace = "MicroserviceAralık.Discount.Protos";
 
 import "google/protobuf/timestamp.proto";
-
+import "google/api/annotations.proto";
 service CouponService{
-	rpc GetCouponById(GetCouponByIdRequest) returns (GetCouponResponse);
-	rpc GetAllCoupons(EmptyCoupon) returns (GetCouponResponses);
-	rpc CreateCoupon(CreateCouponRequest) returns(GetCouponResponse);
-	rpc UpdateCoupon(UpdateCouponRequest) returns(GetCouponResponse);
-	rpc DeleteCoupon(DeleteCouponRequest) returns(DeleteCouponResponse);
+	rpc GetCouponById(GetCouponByIdRequest) returns (GetCouponResponse){
+		option (google.api.http) = {
+      get: "/api/coupons/{id}"
+    };
+	};
+	rpc GetAllCoupons(EmptyCoupon) returns (GetCouponResponses){
+		option (google.api.http)={
+		get:"/api/coupons"
+		};
+	};
+	rpc CreateCoupon(CreateCouponRequest) returns(GetCouponResponse){
+		option (google.api.http)={
+			post:"/api/coupons",
+			body:"*"
+		};
+	};
+	rpc UpdateCoupon(UpdateCouponRequest) returns(GetCouponResponse){
+		option (google.api.http)={
+			put:"/api/coupons",
+			body:"*"
+		};
+	};
+	rpc DeleteCoupon(DeleteCouponRequest) returns(DeleteCouponResponse){
+		option (google.api.http)={
+			delete:"/api/coupons/{id}"
+		};
+	};
 }
 message GetCouponByIdRequest{
 	int32 id=1;
