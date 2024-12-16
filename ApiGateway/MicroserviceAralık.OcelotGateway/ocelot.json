@@ -1,0 +1,20 @@
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/api/{everything}",
+            "DownstreamScheme": "https",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 7007
+                }
+            ],
+            "UpstreamPathTemplate": "/services/basket/{everthing}",
+            "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Put" ],
+            "UpstreamScheme": "https"
+        }
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "https://localhost:5000"
+    }
+}

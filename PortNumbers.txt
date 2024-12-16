@@ -1,0 +1,5 @@
+﻿basket   → 7007
+cargo    → 7299
+order    → 7121
+catalog  → 7150
+discount → 7210

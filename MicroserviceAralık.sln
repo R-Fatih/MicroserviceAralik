@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirements", "{2BC845BC-913B-4AB6-832A-558B14DABEAD}"
 	ProjectSection(SolutionItems) = preProject
 		..\..\Users\Admin\Desktop\MikroServis\MikroServis\requirements\portainer.txt = ..\..\Users\Admin\Desktop\MikroServis\MikroServis\requirements\portainer.txt
+		PortNumbers.txt = PortNumbers.txt
 		..\..\Users\Admin\Desktop\MikroServis\MikroServis\requirements\Serilog conf.txt = ..\..\Users\Admin\Desktop\MikroServis\MikroServis\requirements\Serilog conf.txt
 		..\..\Users\Admin\Desktop\MikroServis\MikroServis\requirements\Swagger token.txt = ..\..\Users\Admin\Desktop\MikroServis\MikroServis\requirements\Swagger token.txt
 	EndProjectSection
