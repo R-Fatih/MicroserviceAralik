@@ -2,4 +2,5 @@
 
 public interface IFileUploader
 {
+    Task<string> UploadFile(IFormFile formFile);
 }

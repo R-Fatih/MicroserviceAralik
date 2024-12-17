@@ -1,6 +1,14 @@
+using MicroserviceAralýk.Image.Context;
+using MicroserviceAralýk.Image.Services;
+using MicroserviceAralýk.Image.Settings;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.Configure<AWSSettings>(builder.Configuration.GetSection(nameof(AWSSettings)));
+builder.Services.AddDbContext<ImageContext>();
+builder.Services.AddScoped<IFileUploader, FileUploader>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
