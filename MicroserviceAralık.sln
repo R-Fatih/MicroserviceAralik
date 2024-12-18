@@ -65,6 +65,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discount", "Discount", "{25
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralık.Image", "Services\Image\MicroserviceAralık.Image\MicroserviceAralık.Image.csproj", "{241A0BD1-CE79-4543-AC4A-1ACF33C8E87D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Message", "Message", "{0EFCA366-95EF-4A9E-87D7-1E9D947AB069}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralık.Message", "Services\Message\MicroserviceAralık.Message\MicroserviceAralık.Message.csproj", "{6D97824A-918E-4195-BB68-CA311693FE62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -131,6 +135,10 @@ Global
 		{241A0BD1-CE79-4543-AC4A-1ACF33C8E87D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{241A0BD1-CE79-4543-AC4A-1ACF33C8E87D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{241A0BD1-CE79-4543-AC4A-1ACF33C8E87D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D97824A-918E-4195-BB68-CA311693FE62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D97824A-918E-4195-BB68-CA311693FE62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D97824A-918E-4195-BB68-CA311693FE62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D97824A-918E-4195-BB68-CA311693FE62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -160,5 +168,7 @@ Global
 		{CC007625-3543-495B-9E07-87F2A5F5EA44} = {8DD895CD-20FA-48C0-B68F-BFFEF03A6704}
 		{25817676-13A2-43C2-9E02-ED3E9D403433} = {8DD895CD-20FA-48C0-B68F-BFFEF03A6704}
 		{241A0BD1-CE79-4543-AC4A-1ACF33C8E87D} = {524DF63B-BAD8-4887-B686-55218D70219A}
+		{0EFCA366-95EF-4A9E-87D7-1E9D947AB069} = {8DD895CD-20FA-48C0-B68F-BFFEF03A6704}
+		{6D97824A-918E-4195-BB68-CA311693FE62} = {0EFCA366-95EF-4A9E-87D7-1E9D947AB069}
 	EndGlobalSection
 EndGlobal
