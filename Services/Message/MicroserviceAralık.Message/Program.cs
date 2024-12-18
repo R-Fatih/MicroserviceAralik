@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>();
 builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped<RabbitMQPublisher>();
+builder.Services.AddHostedService<RabbitMQConsumer>();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddControllers();
