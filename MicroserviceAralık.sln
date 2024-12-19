@@ -70,6 +70,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Message", "Message", "{0EFC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralık.Message", "Services\Message\MicroserviceAralık.Message\MicroserviceAralık.Message.csproj", "{6D97824A-918E-4195-BB68-CA311693FE62}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inventory", "Inventory", "{FE960E70-C893-4CDA-8EA2-CCAD93775ECC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceAralık.Inventory", "Services\Inventory\MicroserviceAralık.Inventory\MicroserviceAralık.Inventory.csproj", "{076CA4A0-46A5-4A58-81E8-67C496CC343F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -140,6 +144,10 @@ Global
 		{6D97824A-918E-4195-BB68-CA311693FE62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D97824A-918E-4195-BB68-CA311693FE62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D97824A-918E-4195-BB68-CA311693FE62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{076CA4A0-46A5-4A58-81E8-67C496CC343F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{076CA4A0-46A5-4A58-81E8-67C496CC343F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{076CA4A0-46A5-4A58-81E8-67C496CC343F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{076CA4A0-46A5-4A58-81E8-67C496CC343F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -171,5 +179,7 @@ Global
 		{241A0BD1-CE79-4543-AC4A-1ACF33C8E87D} = {524DF63B-BAD8-4887-B686-55218D70219A}
 		{0EFCA366-95EF-4A9E-87D7-1E9D947AB069} = {8DD895CD-20FA-48C0-B68F-BFFEF03A6704}
 		{6D97824A-918E-4195-BB68-CA311693FE62} = {0EFCA366-95EF-4A9E-87D7-1E9D947AB069}
+		{FE960E70-C893-4CDA-8EA2-CCAD93775ECC} = {8DD895CD-20FA-48C0-B68F-BFFEF03A6704}
+		{076CA4A0-46A5-4A58-81E8-67C496CC343F} = {FE960E70-C893-4CDA-8EA2-CCAD93775ECC}
 	EndGlobalSection
 EndGlobal
