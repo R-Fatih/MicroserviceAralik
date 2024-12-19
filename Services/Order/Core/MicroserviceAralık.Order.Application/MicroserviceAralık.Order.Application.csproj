@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\RabbitMQ\MicroserviceAralık.RabbitMQ\MicroserviceAralık.RabbitMQ.csproj" />
     <ProjectReference Include="..\MicroserviceAralık.Order.Domain\MicroserviceAralık.Order.Domain.csproj" />
   </ItemGroup>
 

@@ -1,15 +1,24 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
+using MicroserviceAralık.Order.Application.Events;
 using MicroserviceAralık.Order.Application.Features.Mediator.Commands.OrderingCommands;
 using MicroserviceAralık.Order.Application.Interfaces;
-using MicroserviceAralık.Order.Domain.Entities;
+using MicroserviceAralık.RabbitMQ.Abstract;
 
 namespace MicroserviceAralık.Order.Application.Features.Mediator.Handlers.OrderingHandlers;
-public class CreateOrderingCommandHandler(IWriteRepository<Ordering> _writeRepository, IMapper _mapper) : IRequestHandler<CreateOrderingCommand>
+public class CreateOrderingCommandHandler(IOrderingRepository _orderingRepository, IRabbitMQPublisher _rabbitMQPublisher) : IRequestHandler<CreateOrderingCommand, int>
 {
-    public async Task Handle(CreateOrderingCommand request, CancellationToken cancellationToken)
+    public async Task<int> Handle(CreateOrderingCommand request, CancellationToken cancellationToken)
     {
-        var value = _mapper.Map<Ordering>(request);
-        await _writeRepository.CreateAsync(value);
+
+        var value = await _orderingRepository.CreateOrdering(request);
+        var orderCreatedEvent = new OrderCreatedEvent
+        {
+            Id = value,
+            OrderDate = request.OrderDate,
+            TotalPrice = request.TotalPrice,
+            UserId = request.UserId
+        };
+        _rabbitMQPublisher.Publish("OrderCreatedQueue", orderCreatedEvent);
+        return value;
     }
 }
