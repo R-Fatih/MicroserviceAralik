@@ -13,7 +13,7 @@ public class BasketConsumer : BackgroundService
         _serviceScopeFactory = serviceScopeFactory;
     }
 
-    protected override Task ExecuteAsync(CancellationToken stoppingToken)
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         var scope = _serviceScopeFactory.CreateScope();
         var rabbitMqSubscriber = scope.ServiceProvider.GetRequiredService<IRabbitMQSubscriber>();
@@ -22,12 +22,14 @@ public class BasketConsumer : BackgroundService
         rabbitMqSubscriber.Subscribe<OrderCreatedEvent>("OrderCreatedQueue", async (message) =>
         {
 
-            var values = await basketService.GetBasket();
+            var values = await basketService.GetBasket(message.UserId);
             var basketCreatedEvent = new BasketCreatedEvent
             {
-                BasketItems = values.BasketItems
+                BasketItems = values.BasketItems,
+                OrderingId = message.Id
             };
             rabbitMqPublisher.Publish<BasketCreatedEvent>("BasketCreatedQueue", basketCreatedEvent);
         });
+        await Task.Delay(Timeout.Infinite, stoppingToken);
     }
 }

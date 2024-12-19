@@ -10,9 +10,9 @@ namespace MicroserviceAralık.Basket.Controllers;
 public class BasketsController(IBasketService _basketService) : ControllerBase
 {
     [HttpGet]
-    public async Task<IActionResult> GetBasket()
+    public async Task<IActionResult> GetBasket(string? userId)
     {
-        var basket = await _basketService.GetBasket();
+        var basket = await _basketService.GetBasket(userId);
         return Ok(basket);
     }
     [HttpPost]

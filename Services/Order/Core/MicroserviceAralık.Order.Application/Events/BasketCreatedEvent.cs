@@ -1,7 +1,6 @@
-﻿using MicroserviceAralık.Basket.Dtos;
+﻿using MicroserviceAralık.Order.Application.Models;
 
-namespace MicroserviceAralık.Basket.Events;
-
+namespace MicroserviceAralık.Order.Application.Events;
 public class BasketCreatedEvent
 {
     public List<BasketItemDto> BasketItems { get; set; }

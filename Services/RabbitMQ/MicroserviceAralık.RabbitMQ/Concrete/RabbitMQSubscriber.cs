@@ -15,7 +15,7 @@ public class RabbitMQSubscriber : IRabbitMQSubscriber
             HostName = hostname,
             UserName = username,
             Password = password,
-            DispatchConsumersAsync = true
+            DispatchConsumersAsync = false
         };
     }
     public void Subscribe<T>(string queueName, Func<T, Task> messageHandler)

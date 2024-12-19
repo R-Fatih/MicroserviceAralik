@@ -23,10 +23,13 @@ public class BasketService : IBasketService
 
     }
 
-    public async Task<BasketTotalDto> GetBasket()
+    public async Task<BasketTotalDto> GetBasket(string? userId)
     {
-        var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-        var getBasket = await _redisService.GetDatabase().StringGetAsync(userId);
+        var usernewId = _httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+        if (usernewId == null)
+            usernewId = userId;
+        var getBasket = await _redisService.GetDatabase().StringGetAsync(usernewId);
         return JsonSerializer.Deserialize<BasketTotalDto>(getBasket);
     }
 
