@@ -32,13 +32,25 @@ public class StockService(AppDbContext _context) : IStockService
         }).ToListAsync();
     }
 
-    public Task<bool> ReserveInventory(string productId, int quantity)
+    public async Task<bool> ReserveInventory(string productId, int quantity)
     {
-        throw new NotImplementedException();
+
+        var product = await _context.Stocks.FirstOrDefaultAsync(x => x.ProductId == productId);
+        if (product == null || product.Quantity < quantity)
+            return false;
+        product.Quantity -= quantity;
+        await _context.SaveChangesAsync();
+        return true;
     }
 
-    public Task<bool> RollbackInventory(string productId, int quantity)
+    public async Task<bool> RollbackInventory(string productId, int quantity)
     {
-        throw new NotImplementedException();
+
+        var product = await _context.Stocks.FirstOrDefaultAsync(x => x.ProductId == productId);
+        if (product == null)
+            return false;
+        product.Quantity += quantity;
+        await _context.SaveChangesAsync();
+        return true;
     }
 }

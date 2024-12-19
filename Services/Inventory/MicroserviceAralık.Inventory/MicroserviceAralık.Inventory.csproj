@@ -21,9 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Events\" />
-    <Folder Include="Services\WarehouseServices\" />
   </ItemGroup>
 
 </Project>
