@@ -12,5 +12,6 @@ public class OrderDetailMapping : Profile
         CreateMap<OrderDetail, UpdateOrderDetailCommand>().ReverseMap();
         CreateMap<OrderDetail, GetOrderDetailByIdQueryResult>().ReverseMap();
         CreateMap<OrderDetail, GetOrderDetailQueryResult>().ReverseMap();
+        CreateMap<OrderDetail, CreateOrderDetailArrayCommand>().ReverseMap();
     }
 }

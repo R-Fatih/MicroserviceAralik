@@ -4,6 +4,13 @@ using MicroserviceAralık.Order.Persistence.Context;
 namespace MicroserviceAralık.Order.Persistence.Repositories;
 public class WriteRepository<TEntity>(AppDbContext _context) : IWriteRepository<TEntity> where TEntity : class
 {
+    public async Task CreateArrayAsync(List<TEntity> entities)
+    {
+
+        await _context.Set<TEntity>().AddRangeAsync(entities);
+        await _context.SaveChangesAsync();
+    }
+
     public async Task CreateAsync(TEntity entity)
     {
         await _context.Set<TEntity>().AddAsync(entity);

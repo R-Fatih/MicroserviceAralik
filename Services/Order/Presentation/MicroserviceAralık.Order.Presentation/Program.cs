@@ -1,5 +1,8 @@
 using MicroserviceAralýk.Order.Application.Services;
 using MicroserviceAralýk.Order.Persistence.Configurations;
+using MicroserviceAralýk.Order.Presentation.Consumer;
+using MicroserviceAralýk.RabbitMQ.Abstract;
+using MicroserviceAralýk.RabbitMQ.Concrete;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
 
@@ -29,6 +32,10 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddGenericServices();
 builder.Services.AddMediator();
 builder.Services.AddAutoMapper();
+
+builder.Services.AddSingleton<IRabbitMQSubscriber>(sp => new RabbitMQSubscriber("localhost", "guest", "guest"));
+builder.Services.AddSingleton<IRabbitMQPublisher>(sp => new RabbitMQPublisher("localhost", "guest", "guest"));
+builder.Services.AddHostedService<OrderConsumer>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

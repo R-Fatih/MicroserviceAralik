@@ -18,8 +18,10 @@ public class OrderConsumer : BackgroundService
         var scope = _serviceScopeFactory.CreateScope();
         var rabbitSubscriber = scope.ServiceProvider.GetRequiredService<IRabbitMQSubscriber>();
         var mediator = scope.ServiceProvider.GetRequiredService<IMediator>();
+        var rabbitPublisher = scope.ServiceProvider.GetRequiredService<IRabbitMQPublisher>();
         rabbitSubscriber.Subscribe<BasketCreatedEvent>("BasketCreatedQueue", async (message) =>
         {
+            await Task.Delay(5000);
             var newOrderDetails = message.BasketItems.Select(x => new CreateOrderDetailCommand
             {
                 OrderingId = message.OrderingId,
@@ -29,12 +31,17 @@ public class OrderConsumer : BackgroundService
                 ProductPrice = x.Price,
                 TotalPrice = (x.Price * x.Quantity)
             }).ToList();
-            newOrderDetails.ForEach(async x =>
-            {
-                await mediator.Send(x);
-            });
 
+            await mediator.Send(new CreateOrderDetailArrayCommand(newOrderDetails));
+
+            var orderDetailCreatedEvent = new OrderDetailCreatedEvent
+            {
+                OrderList = newOrderDetails
+            };
+
+            rabbitPublisher.Publish<OrderDetailCreatedEvent>("OrderDetailCreatedQueue", orderDetailCreatedEvent);
         });
+        await Task.Delay(Timeout.Infinite, stoppingToken);
 
     }
 }
