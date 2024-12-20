@@ -10,4 +10,5 @@ public class UpdateOrderDetailCommand : IRequest
     public int ProductAmount { get; set; }
     public decimal TotalPrice { get; set; }
     public int OrderingId { get; set; }
+    public bool StockStatus { get; set; }
 }

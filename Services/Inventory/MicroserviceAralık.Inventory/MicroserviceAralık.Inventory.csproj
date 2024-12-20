@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Events\" />
+    <ProjectReference Include="..\..\RabbitMQ\MicroserviceAralık.RabbitMQ\MicroserviceAralık.RabbitMQ.csproj" />
   </ItemGroup>
 
 </Project>
