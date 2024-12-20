@@ -38,6 +38,19 @@ public class InventoryConsumer : BackgroundService
             }
             rabbitPublisher.Publish<InventoryReserveStatusEvent>("InventoryReserveStatusQueue", list);
         });
+        rabbitSubscriber.Subscribe<PaymentStatusEvent>("PaymentStatusQueue", async (message) =>
+        {
+            if (!message.PaymentStatus)
+            {
+                foreach (var item in message.OrderList)
+                {
+                    await stockService.RollbackInventory(item.ProductId, item.ProductAmount);
+                }
+                rabbitPublisher.Publish("PaymentFailed", "");
+            }
+            else
+                rabbitPublisher.Publish("PaymentSucceded", "");
+        });
         await Task.Delay(Timeout.Infinite, stoppingToken);
     }
 

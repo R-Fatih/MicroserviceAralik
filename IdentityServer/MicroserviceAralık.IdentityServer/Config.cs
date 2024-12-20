@@ -41,6 +41,18 @@ namespace MicroserviceAralık.IdentityServer
             {
                 Scopes={"ImageFullPermission","ImageReadPermission"}
             },
+            new ApiResource("ResourceMessage")
+            {
+                Scopes={"MessageFullPermission"}
+            },
+            new ApiResource("ResourceInventory")
+            {
+                Scopes={"InventoryFullPermission"}
+            },
+            new ApiResource("ResourcePayment")
+            {
+                Scopes={"PaymentFullPermission"}
+            },
             new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
 
         };
@@ -68,6 +80,9 @@ namespace MicroserviceAralık.IdentityServer
             new ApiScope("OcelotFullPermission","Full access to oceolot resource"),
             new ApiScope("ImageFullPermission","Full access to image resource"),
             new ApiScope("ImageReadPermission","Read access to image resource"),
+            new ApiScope("MessageFullPermission","Full access to message resource"),
+            new ApiScope("InventoryFullPermission","Full access to inventory resource"),
+            new ApiScope("PaymentFullPermission","Full access to payment resource"),
             new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
         };
         public static IEnumerable<Client> Clients => new Client[]
@@ -88,7 +103,7 @@ namespace MicroserviceAralık.IdentityServer
                 ClientName="Admin Client",
                 AllowedGrantTypes=GrantTypes.ResourceOwnerPassword,
                 ClientSecrets={ new Secret("AdminSecret".Sha256())},
-                AllowedScopes={"CatalogFullPermission","DiscountFullPermission","OrderFullPermission","CargoFullPermission","BasketFullPermission", "OcelotFullPermission","ImageFullPermission",IdentityServerConstants.StandardScopes.Email,IdentityServerConstants.StandardScopes.OpenId,IdentityServerConstants.StandardScopes.Profile,IdentityServerConstants.LocalApi.ScopeName },
+                AllowedScopes={"CatalogFullPermission","DiscountFullPermission","OrderFullPermission","CargoFullPermission","BasketFullPermission","PaymentFullPermission","MessageFullPermission","InventoryFullPermission", "OcelotFullPermission","ImageFullPermission",IdentityServerConstants.StandardScopes.Email,IdentityServerConstants.StandardScopes.OpenId,IdentityServerConstants.StandardScopes.Profile,IdentityServerConstants.LocalApi.ScopeName },
                 AccessTokenLifetime=7200
             }
         };

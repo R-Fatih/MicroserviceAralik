@@ -1,3 +1,4 @@
+using MicroserviceAralýk.Payment.Consumer;
 using MicroserviceAralýk.RabbitMQ.Abstract;
 using MicroserviceAralýk.RabbitMQ.Concrete;
 
@@ -6,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddSingleton<IRabbitMQPublisher>(sp => new RabbitMQPublisher("localhost", "guest", "guest"));
+builder.Services.AddSingleton<IRabbitMQSubscriber>(sp => new RabbitMQSubscriber("localhost", "guest", "guest"));
+builder.Services.AddHostedService<PaymentConsumer>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
