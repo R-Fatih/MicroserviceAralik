@@ -23,7 +23,10 @@ public class InventoryConsumer : BackgroundService
         var stockService = scope.ServiceProvider.GetRequiredService<IStockService>();
         rabbitSubscriber.Subscribe<OrderDetailCreatedEvent>("OrderDetailCreatedQueue", async (message) =>
         {
-            var list = new InventoryReserveStatusEvent();
+            var list = new InventoryReserveStatusEvent()
+            {
+                OrderList = new List<Models.CreateOrderDetailCommand>()
+            };
             foreach (var item in message.OrderList)
             {
                 var result = await stockService.ReserveInventory(item.ProductId, item.ProductAmount);

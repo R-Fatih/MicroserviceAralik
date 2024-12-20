@@ -14,6 +14,7 @@ public static class ServiceRegistrations
         services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
         services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
         services.AddScoped<IOrderingRepository, OrderingRepository>();
+        services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
         services.AddSingleton<IRabbitMQPublisher>(sp => new RabbitMQPublisher("localhost", "guest", "guest"));
     }
 }

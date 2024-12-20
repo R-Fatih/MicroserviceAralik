@@ -1,20 +1,11 @@
-using MicroserviceAralýk.Inventory.Consumers;
-using MicroserviceAralýk.Inventory.Context;
-using MicroserviceAralýk.Inventory.Services.StockServices;
-using MicroserviceAralýk.Inventory.Services.WarehouseServices;
 using MicroserviceAralýk.RabbitMQ.Abstract;
 using MicroserviceAralýk.RabbitMQ.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<AppDbContext>();
-builder.Services.AddScoped<IStockService, StockService>();
-builder.Services.AddScoped<IWarehouseService, WarehouseService>();
 
 builder.Services.AddSingleton<IRabbitMQPublisher>(sp => new RabbitMQPublisher("localhost", "guest", "guest"));
-builder.Services.AddSingleton<IRabbitMQSubscriber>(sp => new RabbitMQSubscriber("localhost", "guest", "guest"));
-builder.Services.AddHostedService<InventoryConsumer>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

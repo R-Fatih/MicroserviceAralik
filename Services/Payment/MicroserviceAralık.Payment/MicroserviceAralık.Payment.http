@@ -1,0 +1,6 @@
+@MicroserviceAralık.Payment_HostAddress = http://localhost:5052
+
+GET {{MicroserviceAralık.Payment_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

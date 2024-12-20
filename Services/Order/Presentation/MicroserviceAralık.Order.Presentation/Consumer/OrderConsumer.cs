@@ -44,8 +44,18 @@ public class OrderConsumer : BackgroundService
 
         rabbitSubscriber.Subscribe<InventoryReserveStatusEvent>("InventoryReserveStatusQueue", async (message) =>
         {
+            foreach (var item in message.OrderList)
+            {
+                var updateOrderDetail = new UpdateOrderDetailCommand
+                {
+                    OrderingId = item.OrderingId,
+                    ProductId = item.ProductId,
+                    StockStatus = item.StockStatus
+                };
+                await mediator.Send(updateOrderDetail);
 
-        })
+            }
+        });
 
         await Task.Delay(Timeout.Infinite, stoppingToken);
 
