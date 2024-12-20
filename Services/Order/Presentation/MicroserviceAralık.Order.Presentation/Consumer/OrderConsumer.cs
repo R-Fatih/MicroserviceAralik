@@ -41,6 +41,12 @@ public class OrderConsumer : BackgroundService
 
             rabbitPublisher.Publish<OrderDetailCreatedEvent>("OrderDetailCreatedQueue", orderDetailCreatedEvent);
         });
+
+        rabbitSubscriber.Subscribe<InventoryReserveStatusEvent>("InventoryReserveStatusQueue", async (message) =>
+        {
+
+        })
+
         await Task.Delay(Timeout.Infinite, stoppingToken);
 
     }
